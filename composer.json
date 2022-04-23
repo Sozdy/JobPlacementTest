@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        },
+        "files": [
+            "src/Routes.php"
+        ]
+    },
+    "require": {
+        "twig/twig": "^3.0"
+    }
+}

@@ -1,0 +1,13 @@
+<nav>
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link " href="/?{{ {'orderBy': orderBy, 'direction': direction, 'page': 1}|url_encode }}"><<</a></li>
+    {% for page in 1..pagesCount %}
+    <li class="page-item {{ currentPage == page ? 'active' : ''}} ">
+      <a class="page-link " href="/?{{ {'orderBy': orderBy, 'direction': direction, 'page': page}|url_encode }}">
+        {{page}}
+      </a>
+    </li>
+    {% endfor %}
+    <li class="page-item"><a class="page-link" href="/?{{ {'orderBy': orderBy, 'direction': direction, 'page': pagesCount}|url_encode }}">>></a></li>
+  </ul>
+</nav>

@@ -1,0 +1,110 @@
+{% extends "Layouts/Main.html" %}
+
+{% block title %}Главная{% endblock %}
+{% block heading %}Задачи{% endblock %}
+
+{% block content %}
+
+{% if message %}
+<div class="alert alert-success" role="alert">
+    {{message}}
+</div>
+{% endif %}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-wrap">
+            {% if tasks|length > 0 %}
+                <table class="table table-responsive-xl">
+                    <thead>
+                    <tr>
+                        <th class="text-center {{ isAuth ? 'w-10' : 'w-10' }}">
+                            <a class="text-decoration-none text-black-50" href="/?{{ {
+                                        'orderBy': orderBy == 'email' ? direction == 'DESC' ? 'email' : 'id' : 'email',
+                                        'direction': orderBy == 'email' ? direction == 'DESC' ? 'ASC' : 'DESC' : 'DESC',
+                                        'page': currentPage
+                                    } | url_encode }}">
+                                Email
+                                {% if orderBy == 'email' and direction == 'DESC' %}
+                                    <i class="icon down fa fa-angle-down"></i>
+                                {% endif %}
+                                {% if orderBy == 'email' and direction == 'ASC' %}
+                                    <i class="icon up fa fa-angle-up"></i>
+                                {% endif %}
+                            </a>
+                        </th>
+                        <th class="text-center {{ isAuth ? 'w-20' : 'w-20' }}">
+                            <a class="text-decoration-none text-black-50" href="/?{{ {
+                                        'orderBy': orderBy == 'user_name' ? direction == 'DESC' ? 'user_name' : 'id' : 'user_name',
+                                        'direction': orderBy == 'user_name' ? direction == 'DESC' ? 'ASC' : 'DESC' : 'DESC',
+                                        'page': currentPage
+                                    } | url_encode }}">
+                                Имя
+
+                                {% if orderBy == 'user_name' and direction == 'DESC' %}
+                                    <i class="icon down fa fa-angle-down"></i>
+                                {% endif %}
+                                {% if orderBy == 'user_name' and direction == 'ASC' %}
+                                    <i class="icon up fa fa-angle-up"></i>
+                                {% endif %}
+                            </a>
+                        </th>
+                        <th class="text-center {{ isAuth ? 'w-20' : 'w-20' }}">
+                            <a class="text-decoration-none text-black-50" href="/?{{ {
+                                        'orderBy': orderBy == 'finished' ? direction == 'DESC' ? 'finished' : 'id' : 'finished',
+                                        'direction': orderBy == 'finished' ? direction == 'DESC' ? 'ASC' : 'DESC' : 'DESC',
+                                        'page': currentPage
+                                    } | url_encode }}">
+                                Статус
+
+                                {% if orderBy == 'finished' and direction == 'DESC' %}
+                                    <i class="icon down fa fa-angle-down"></i>
+                                {% endif %}
+                                {% if orderBy == 'finished' and direction == 'ASC' %}
+                                    <i class="icon up fa fa-angle-up"></i>
+                                {% endif %}
+                            </a>
+
+                        </th>
+                        <th class="text-center {{ isAuth ? 'w-40' : 'w-50' }}">
+                            Описание
+                        </th>
+                        {% if isAuth %}
+                            <th class="text-center w-10">Действие</th>
+                        {% endif %}
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for task in tasks %}
+                            {{ include('Sections/Task.html') }}
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="text-center mb-3">
+                    Задач нет
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="d-flex flex-wrap justify-content-between px-3">
+    <div>
+        <a href="/create">
+            <button type="button" class="btn btn-outline-success">
+                <span aria-hidden="true" >Добавить <i class="fa fa-plus"></i></span>
+            </button>
+        </a>
+    </div>
+    <div>
+        {% if pagesCount > 1 %}
+            {{ include('Sections/Pagination.html') }}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

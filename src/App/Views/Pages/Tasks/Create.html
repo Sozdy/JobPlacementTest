@@ -1,0 +1,28 @@
+{% extends "Layouts/Main.html" %}
+
+{% block title %}Создание{% endblock %}
+{% block heading %}Создание задачи{% endblock %}
+
+{% block content %}
+
+<form action="/" method="POST" >
+    <div class="form-group">
+        <label for="inputEmail">Email </label>
+        <input name="email" required type="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="inputUserName">Имя</label>
+        <input name="user_name" required type="text" class="form-control" id="inputUserName" placeholder="Имя">
+    </div>
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <textarea name="description" required type="text" class="form-control" id="description" placeholder="Описание"></textarea>
+    </div>
+
+    <a href="/">
+        <button type="button" class="btn btn-primary">Отменить</button>
+    </a>
+    <button type="submit" class="btn btn-success">Сохранить</button>
+</form>
+
+{% endblock %}

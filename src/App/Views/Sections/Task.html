@@ -1,0 +1,44 @@
+<tr class="alert" role="alert">
+    <td class="text-center">
+        <div class="email">
+            <span>{{ task.email }}</span>
+        </div>
+    </td>
+    <td class="text-center">
+        {{ task.user_name }}
+    </td>
+
+    <td class="text-center">
+    {% if task.finished %}
+        <div class="status active">
+            Выполнено
+        </div>
+    {% else %}
+        <div class="status waiting">
+            Выполняется
+        </div>
+    {% endif %}
+
+    {% if task.updated %}
+        <div class="updated mt-1">
+            Отредактировано администратором
+        </div>
+    {% endif %}
+    </td>
+
+    <td class="text-center description">
+        {{ task.description }}
+    </td>
+    {% if isAuth %}
+    <td class="text-center">
+        <div class="d-flex justify-content-around">
+            <a href="/{{task.id}}/edit">
+                <button type="button" class="edit">
+                    <span aria-hidden="true" ><i class="fa fa-edit"></i></span>
+                </button>
+            </a>
+        </div>
+    </td>
+    {% endif %}
+</tr>
+

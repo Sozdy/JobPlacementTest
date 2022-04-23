@@ -1,0 +1,160 @@
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+    color: #000;
+}
+
+.w-10{
+    width: 10%;
+}
+.w-20{
+    width: 20%;
+}
+.w-40{
+    width: 40%;
+}
+a{
+    transition: none;
+}
+
+.ftco-section {
+    padding: 3em 0;
+}
+
+.ftco-no-pt {
+    padding-top: 0;
+}
+
+.ftco-no-pb {
+    padding-bottom: 0;
+}
+
+.heading-section {
+    font-size: 28px;
+    color: #000;
+}
+
+.img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.table-wrap {
+    overflow-x: scroll;
+}
+
+.table {
+    width: 100%;
+    -webkit-box-shadow: 0 5px 12px -12px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0 5px 12px -12px rgba(0, 0, 0, 0.29);
+    box-shadow: 0 5px 12px -12px rgba(0, 0, 0, 0.29);
+}
+
+.table thead th {
+    border: none;
+    padding: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    color: gray;
+}
+
+.table .icon.down,
+.table .icon.up{
+    font-size: 1.2em;
+}
+
+.table thead tr {
+    background: #fff;
+    border-bottom: 4px solid #eceffa;
+}
+
+.table tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 4px solid #f8f9fd;
+}
+
+.table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+.table tbody th, .table tbody td {
+    border: none;
+    padding: 30px;
+    font-size: 14px;
+    background: #fff;
+    vertical-align: middle;
+}
+
+.table .status {
+    position: relative;
+    border-radius: 30px;
+    padding: 4px 10px 4px 10px;
+    display: inline-block;
+}
+
+
+.table tbody .active {
+    background: #cff6dd;
+    color: #1fa750;
+}
+
+.table tbody .waiting {
+    background: #ddf7fd;
+    color: #43afc0;
+}
+
+.table tbody .updated {
+    font-size: .75em;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.table tbody td .img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.table tbody td .email {
+    display: block;
+}
+
+.edit {
+    font-size: 1.2em;
+
+    color: #3538dc;
+}
+.create {
+    font-size: 1em;
+    padding: 8px;
+    border: 1px #1fa750 solid;
+    border-radius: 5px;
+    background: #cff6dd;
+    color: #1fa750;
+}
+
+.edit, .create {
+    float: right;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.edit:not(:disabled):not(.disabled):hover, .edit:not(:disabled):not(.disabled):focus {
+    opacity: .75;
+}
+.create:not(:disabled):not(.disabled):hover, .create:not(:disabled):not(.disabled):focus {
+    opacity: .75;
+}
+
+button{
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}

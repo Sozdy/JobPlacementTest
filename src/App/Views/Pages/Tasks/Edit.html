@@ -1,0 +1,36 @@
+{% extends "Layouts/Main.html" %}
+
+{% block title %}Редактирование{% endblock %}
+{% block heading %}Редактирование задачи {% endblock %}
+
+{% block content %}
+
+<form action="/{{task.id}}/patch" method="POST" >
+    <div class="form-group">
+        <label for="inputEmail">Email </label>
+        <input name="email" value="{{task.email}}" required type="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="inputUserName">Имя</label>
+        <input name="user_name" value="{{task.user_name}}" required type="text" class="form-control" id="inputUserName" placeholder="Имя">
+    </div>
+    <div class="form-group">
+        <label for="description">Описание</label>
+        <textarea name="description" required type="text" class="form-control" id="description" placeholder="Описание">{{task.description}}</textarea>
+    </div>
+
+    <div class="form-check mb-3">
+        <input type="checkbox" name="finished" id="finished" {% if task.finished %} checked {% endif %} class="form-check-input">
+        <label class="form-check-label" for="finished">Выполнено</label>
+    </div>
+
+    <input name="old_description" value="{{task.description}}" required type="hidden" class="form-control">
+    <input class="d-none" type="checkbox" name="updated" {% if task.updated %} checked {% endif %} class="form-check-input">
+
+    <a href="/">
+        <button type="button" class="btn btn-primary">Отменить</button>
+    </a>
+    <button type="submit" class="btn btn-success">Сохранить</button>
+</form>
+
+{% endblock %}
